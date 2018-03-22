@@ -39,3 +39,18 @@ connect-to-open() {
 	echo "connecting to ssid $1"
 	sudo iwconfig wlp2s0 essid $1
 }
+
+wifi-scan () {
+	echo "killing wpa_supplicant if it's up"
+	sudo killall wpa_supplicant
+	echo "enabling wifi if it's down"
+	sudo ip link set wlp2s0 up
+	echo -e "good to go\n"
+	echo "scanning"
+	echo -e "\033[1;30m--------"
+	echo -ne "\033[0;32m"
+	sudo iw dev wlp2s0 scan | grep -i ssid | sed s/:/\\n/g | sed /SSID/d | sed s/\ //g
+	echo -ne "\033[0;0m"
+	# sudo iw dev wlp2s0 scan | grep -ie "ssid" -e "signal" | sed -rn 'N;s/\n/ /;p'
+
+}
