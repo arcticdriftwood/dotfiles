@@ -36,9 +36,9 @@ module-margin    = 1
 ; Fonts are defined using <font-name>;<vertical-offset>
 font-0           = Tamsyn:size=12;2
 ; Modules
-modules-left     = clock battery
+modules-left     = clock cpu temperature memory
 modules-center   = bspwm
-modules-right    = wifi sound backlight
+modules-right    = wifi sound backlight battery
 ; char between each module
 separator        = "|"
 ; Opacity value between 0.0 and 1.0 used on fade in/out
@@ -103,6 +103,11 @@ label-charging     = %percentage%%+
 label-discharging  = %percentage%%
 label-full         = %percentage%%
 
+[module/temperature]
+interval = 3
+type = internal/temperature
+warn-temperature=60
+
 [module/backlight]
 type = custom/script
 ; get brightness as <current>:<max>
@@ -125,4 +130,13 @@ label-connected = %essid% | %downspeed%
 label-disconnected-foreground = ${colors.fg}
 label-disconnected = (/)
 
+[module/memory]
+interval = 3
+type = custom/script
+exec = ~/scripts/fmt-mem.sh
+label = %output%
 
+[module/cpu]
+interval = 3
+type = internal/cpu
+label = %percentage%%

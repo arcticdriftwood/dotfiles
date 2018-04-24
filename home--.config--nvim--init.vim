@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 " Visual Theming

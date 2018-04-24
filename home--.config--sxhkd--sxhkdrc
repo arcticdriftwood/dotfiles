@@ -5,14 +5,26 @@
 # terminal emulator
 super + Return
 	urxvtc
-	# urxvt / urxvtc
+
+super + shift + Return
+	urxvtc; \
+	bspc node --focus newer; \
+	bspc node --state pseudo_tiled
 
 # program search
 super + space
 	~/scripts/dmenu-colorized.sh
 
+super + shift + space 
+	~/scripts/dmenu-colorized.sh; \
+	bspc node -f newer; \
+	bspc node -t pseudo_tiled
+
 XF86Launch1
 	~/scripts/spawn-floating-urxvtc.sh
+
+super + XF86Launch1 
+	~/scripts/wifi-dmenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -30,7 +42,8 @@ super + alt + Escape
 super + {_,shift + }w
 	bspc node -{c,k}
 
-
+super + Delete
+	~/scripts/lock-screen.sh ~/scripts/lock.png
 #
 # state/flags
 #
@@ -52,7 +65,7 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+{XF86Back, XF86Forward}
 	bspc desktop -f {prev,next}.local
 
 

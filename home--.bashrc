@@ -54,3 +54,9 @@ wifi-scan () {
 	# sudo iw dev wlp2s0 scan | grep -ie "ssid" -e "signal" | sed -rn 'N;s/\n/ /;p'
 
 }
+
+alias xi='xbps-install'
+alias xu='xbps-install -Su'
+alias xq='xbps-query'
+alias xr='xbps-remove'
+alias sudo='sudo '
