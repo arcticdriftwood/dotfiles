@@ -17,13 +17,6 @@ bspc config focus_follows_pointer true
 
 polybar bar & 
 
-bspc rule -a Zathura state=pseudo_tiled
-#bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Chromium desktop='^2'
-#bspc rule -a mplayer2 state=floating
-#bspc rule -a Kupfer.py focus=on
-#bspc rule -a Screenkey manage=off
-
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_corner
@@ -50,8 +43,9 @@ xcalib -d :0 ~/.config/x200.icc
 
 amixer set Master 0%
 
-urxvtc -e "htop" 
-bspc node -f newer
-bspc node -t pseudo_tiled
-bspc node -d '^10'
-bspc node -g locked
+bspc rule -a URxvt:htop-pt state=pseudo_tiled desktop="^10" locked=on
+bspc rule -a URxvt:wifi-dmenu state=floating sticky=on rectangle=74x18+0+0
+bspc rule -a URxvt:dropdown state=floating sticky=on rectangle=564x18+356+382
+bspc rule -a URxvt:urxvt-pt state=pseudo_tiled
+
+urxvtc -name "htop-pt" -e "htop" 

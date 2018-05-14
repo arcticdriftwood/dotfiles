@@ -7,18 +7,11 @@ super + Return
 	urxvtc
 
 super + shift + Return
-	urxvtc; \
-	bspc node --focus newer; \
-	bspc node --state pseudo_tiled
+	urxvtc -name "urxvt-pt"
 
 # program search
 super + space
 	~/scripts/dmenu-colorized.sh
-
-super + shift + space 
-	~/scripts/dmenu-colorized.sh; \
-	bspc node -f newer; \
-	bspc node -t pseudo_tiled
 
 XF86Launch1
 	~/scripts/spawn-floating-urxvtc.sh

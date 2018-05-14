@@ -114,7 +114,7 @@ type = custom/script
 exec = cat /sys/class/backlight/acpi_video0/actual_brightness
 format = <label>
 label = %output%
-interval = 1
+interval = 3
 
 [module/sound]
 type = internal/volume
