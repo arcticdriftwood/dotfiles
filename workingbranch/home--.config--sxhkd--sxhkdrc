@@ -46,7 +46,7 @@ super + {z,x,c,v}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {z,x,c}
+super + ctrl + {b,n,m}
 	bspc node -g {locked,sticky,private}
 
 #
@@ -120,14 +120,11 @@ XF86AudioRaiseVolume
 # modes
 #
 
-# editors
+#editors
 super + e
   st -e "nvim"
 
-# random wall
+#random wall
 super + shift + p
   feh --randomize --bg-fill ~/wallpapers
 
-# borders
-super + m
-  ~/scripts/toggle-space.sh 2 4 0 0 
